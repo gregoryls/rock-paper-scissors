@@ -58,7 +58,7 @@ let computerScore = 0;
 function game() {
 
     for (let i = 0; i<5; i++){
-        let playerSelection = prompt('Enter rock, paper, or scissors'.toLowerCase(), 'rock')
+        let playerSelection = prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
         let computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
         console.log(`Score: Player ${playerScore} - ${computerScore} Computer`);
@@ -66,7 +66,7 @@ function game() {
     if (playerScore > computerScore){
         console.log('Best of 5 result - You Win!');
     }else if (playerScore < computerScore){
-        console.log('Best of 5 result - You Win!');
+        console.log('Best of 5 result - You Lose!');
     }else{
         console.log('Best of 5 result - Tie!')
     }
