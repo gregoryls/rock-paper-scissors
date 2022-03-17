@@ -47,6 +47,6 @@ function playRound (playerSelection, computerSelection) {
         }
     }
 }
-let playerSelection = prompt('Enter rock, paper, or scissors', 'rock')
+let playerSelection = prompt('Enter rock, paper, or scissors'.toLowerCase(), 'rock')
 let computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
