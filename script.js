@@ -1,9 +1,4 @@
-// Create a function, computerPlay, that will randomly return 'rock', 'paper', or 'scissors'. 
-// let computerSelection equal the output of computerPlay
-// let playerSelection equal player input of 'rock', 'paper', or 'scissors'.  Convert all submissions to lowercase. 
-//Function, playRound, that takes playerSelection and computerSelection as inputs and returns the winner. 
-//If player=choice, switch (computer) case rock, case paper, case scissors
-//function, game, that plays 5 rounds.  For...X5,  run computerPlay, player prompt, and playRound.  Initialize count variables for player and computer, increment the winner by 1 each round.  Send round result and total score to console each roudn.  
+// Create a function, computerPlay, that will randomly return 'rock', 'paper', or 'scissors'.  
 function computerPlay () {
     let randomNumber = Math.floor(Math.random()*3+1)
     
@@ -16,7 +11,8 @@ function computerPlay () {
             return 'scissors';        
     }
 }
-
+//Function, playRound, that takes playerSelection and computerSelection as inputs and returns the winner. 
+//If player=choice, switch (computer) case rock, case paper, case scissors
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === 'rock'){
         switch (computerSelection){
@@ -55,8 +51,11 @@ function playRound (playerSelection, computerSelection) {
 }
 let playerScore = 0;
 let computerScore = 0;
+//function, game(), that plays 5 rounds.  For...X5,  run computerPlay, player prompt, and playRound.  Initialize count variables for player and computer, increment the winner by 1 each round.  Send round result and total score to console each round. 
+// let playerSelection equal player input of 'rock', 'paper', or 'scissors'.  Convert all submissions to lowercase. 
+// let computerSelection equal the output of computerPlay
 function game() {
-
+    
     for (let i = 0; i<5; i++){
         let playerSelection = prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
         let computerSelection = computerPlay();
@@ -73,6 +72,3 @@ function game() {
 }
 game();
 
-// let playerSelection = prompt('Enter rock, paper, or scissors'.toLowerCase(), 'rock')
-// let computerSelection = computerPlay();
-// console.log(playRound(playerSelection, computerSelection));
