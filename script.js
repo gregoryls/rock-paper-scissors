@@ -57,9 +57,11 @@ let computerScore = 0;
 function game() {
     
     for (let i = 0; i<5; i++){
-        let playerSelection = 'rock' //prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+        //let playerSelection = prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
+        
+        //let computerSelection = computerPlay();
+        //console.log(playRound(playerSelection, computerSelection));
+        rockButton.addEventListener('click',() => playRound('rock',computerSelection))
         console.log(`Score: Player ${playerScore} - ${computerScore} Computer`);
     }
     if (playerScore > computerScore){
@@ -70,5 +72,17 @@ function game() {
         console.log('Best of 5 result - Tie!')
     }
 }
-game();
+// let playButtons = document.querySelectorAll(".game-buttons button")
+// playButtons.forEach(playButton => 
+//     playButton.addEventListener('click',playRound));
+let rockButton = document.querySelector('.rock');
+let paperButton = document.querySelector('.paper');
+let scissorsButton = document.querySelector('.scissors');
+
+rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
+paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
+scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
+
+//rockButton.addEventListener('click', playRound('rock',computerSelection))
+//game();
 
