@@ -57,7 +57,7 @@ let computerScore = 0;
 function game() {
     
     for (let i = 0; i<5; i++){
-        let playerSelection = prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
+        let playerSelection = 'rock' //prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
         let computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
         console.log(`Score: Player ${playerScore} - ${computerScore} Computer`);
