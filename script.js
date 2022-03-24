@@ -17,11 +17,7 @@ function computerPlay () {
 function playRound (playerSelection, computerSelection) {
     let list = document.createElement('li');
     let score = document.querySelector('.score');
-    let results = document.querySelector('.results');
-
-    let victory = document.querySelector('.victory');
-    let victoryText = document.createElement('h1');
-    
+    let results = document.querySelector('.results');   
 
     if (playerSelection === 'rock'){
         switch (computerSelection){
@@ -35,12 +31,14 @@ function playRound (playerSelection, computerSelection) {
                 results.prepend(list);
                 computerScore += 1;
                 score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                checkWinner (playerScore, computerScore);
                 return 'You lose! Paper beats rock';
             case 'scissors':
                 list.textContent = 'You win! Rock beats scissors'
                 results.prepend(list);
                 playerScore += 1;
                 score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                checkWinner (playerScore, computerScore);
                 return 'You win! Rock beats scissors';
         }
     }else if (playerSelection === 'paper'){
@@ -50,6 +48,7 @@ function playRound (playerSelection, computerSelection) {
                 results.prepend(list);
                 playerScore += 1;
                 score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                checkWinner (playerScore, computerScore);
                 return 'You win! Paper beats rock';
             case 'paper':
                 list.textContent = 'Tie!'
@@ -60,6 +59,7 @@ function playRound (playerSelection, computerSelection) {
                 results.prepend(list);
                 computerScore += 1;
                 score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                checkWinner (playerScore, computerScore);
                 return 'You lose! Scissors beats paper';
         }
     }else {
@@ -69,12 +69,14 @@ function playRound (playerSelection, computerSelection) {
                 results.prepend(list);
                 computerScore += 1;
                 score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                checkWinner (playerScore, computerScore);
                 return 'You lose! Rock beats scissors';
             case 'paper':
                 list.textContent = 'You win! Scissors beats paper'
                 results.prepend(list);
                 playerScore += 1;
                 score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                checkWinner (playerScore, computerScore);
                 return 'You win! Scissors beats paper';
             case 'scissors':
                 list.textContent = 'Tie!'
@@ -82,13 +84,7 @@ function playRound (playerSelection, computerSelection) {
                 return 'Tie!';
         }
     }
-    if (playerScore >= 5){
-        victoryText.textContent = 'You win the match!'
-        victory.appendChild(victoryText);
-    }else if (computerScore >= 5){
-        victoryText.textContent = 'You lose the match!'
-        victory.appendChild(victoryText);
-    }
+   
     
 }
 
@@ -112,20 +108,33 @@ function game() {
     // }else{
     //     console.log('Best of 5 result - Tie!')
     // }
+   // while (playerScore < 5 || computerScore < 5){
+
+
+        let rockButton = document.querySelector('.rock');
+        let paperButton = document.querySelector('.paper');
+        let scissorsButton = document.querySelector('.scissors');
 
 
 
-let rockButton = document.querySelector('.rock');
-let paperButton = document.querySelector('.paper');
-let scissorsButton = document.querySelector('.scissors');
+        rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
+        paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
+        scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
+   // }
 
+}
 
-
-rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
-paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
-scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
-
-
+function checkWinner (playerScore, computerScore){
+    let victoryText = document.createElement('h1');
+    let victory = document.querySelector('.victory');
+    
+    if (playerScore >= 5){
+        victoryText.textContent = 'You win the match!'
+        victory.appendChild(victoryText);
+    }else if (computerScore >= 5){
+        victoryText.textContent = 'You lose the match!'
+        victory.appendChild(victoryText);
+    }
 }
 let playerScore = 0;
 let computerScore = 0;
