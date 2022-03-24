@@ -18,7 +18,9 @@ function playRound (playerSelection, computerSelection) {
     let list = document.createElement('li');
     let score = document.querySelector('.score');
     let results = document.querySelector('.results');   
-
+    if (winStatus === 1) {
+        return;
+    }
     if (playerSelection === 'rock'){
         switch (computerSelection){
             case 'rock':
@@ -93,6 +95,7 @@ function playRound (playerSelection, computerSelection) {
 // let computerSelection equal the output of computerPlay
 function game() {
     
+    
     // for (let i = 0; i<5; i++){
     //     //let playerSelection = prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
         
@@ -120,22 +123,31 @@ function game() {
         rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
         paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
         scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
-   // }
+   
 
 }
 
 function checkWinner (playerScore, computerScore){
     let victoryText = document.createElement('h1');
     let victory = document.querySelector('.victory');
-    
+
     if (playerScore >= 5){
+        
         victoryText.textContent = 'You win the match!'
         victory.appendChild(victoryText);
+        winStatus = 1;
+        
     }else if (computerScore >= 5){
+        
         victoryText.textContent = 'You lose the match!'
         victory.appendChild(victoryText);
+        winStatus = 1;
+        
     }
 }
+
+
 let playerScore = 0;
 let computerScore = 0;
+let winStatus = 0;
 game();
