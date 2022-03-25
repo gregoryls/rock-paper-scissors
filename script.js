@@ -16,7 +16,7 @@ function computerPlay () {
 //If player=choice, switch (computer) case rock, case paper, case scissors
 function playRound (playerSelection, computerSelection) {
     let list = document.createElement('li');
-    let score = document.querySelector('.score');
+    let score = document.querySelector('.scoreNumber');
     let results = document.querySelector('.results');   
     if (winStatus === 1) {
         return;
@@ -24,7 +24,7 @@ function playRound (playerSelection, computerSelection) {
     if (playerSelection === 'rock'){
         switch (computerSelection){
             case 'rock':
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 list.textContent = 'Tie!'
                 results.prepend(list);
                 return 'Tie!';
@@ -32,14 +32,14 @@ function playRound (playerSelection, computerSelection) {
                 list.textContent = 'You lose! Paper beats rock'
                 results.prepend(list);
                 computerScore += 1;
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 checkWinner (playerScore, computerScore);
                 return 'You lose! Paper beats rock';
             case 'scissors':
                 list.textContent = 'You win! Rock beats scissors'
                 results.prepend(list);
                 playerScore += 1;
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 checkWinner (playerScore, computerScore);
                 return 'You win! Rock beats scissors';
         }
@@ -49,7 +49,7 @@ function playRound (playerSelection, computerSelection) {
                 list.textContent = 'You win! Paper beats rock'
                 results.prepend(list);
                 playerScore += 1;
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 checkWinner (playerScore, computerScore);
                 return 'You win! Paper beats rock';
             case 'paper':
@@ -60,7 +60,7 @@ function playRound (playerSelection, computerSelection) {
                 list.textContent = 'You lose! Scissors beats paper'
                 results.prepend(list);
                 computerScore += 1;
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 checkWinner (playerScore, computerScore);
                 return 'You lose! Scissors beats paper';
         }
@@ -70,14 +70,14 @@ function playRound (playerSelection, computerSelection) {
                 list.textContent = 'You lose! Rock beats scissors'
                 results.prepend(list);
                 computerScore += 1;
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 checkWinner (playerScore, computerScore);
                 return 'You lose! Rock beats scissors';
             case 'paper':
                 list.textContent = 'You win! Scissors beats paper'
                 results.prepend(list);
                 playerScore += 1;
-                score.textContent = `Player ${playerScore} - ${computerScore} Computer`;
+                score.textContent = `${playerScore} - ${computerScore}`;
                 checkWinner (playerScore, computerScore);
                 return 'You win! Scissors beats paper';
             case 'scissors':
@@ -132,8 +132,8 @@ function removePreviousGame() {
     while (results.firstChild){
         results.removeChild(results.firstChild);
     }
-    let score = document.querySelector('.score');
-    score.textContent = 'Player 0 - 0 Computer';
+    let score = document.querySelector('.scoreNumber');
+    score.textContent = '0 - 0';
     let resetDiv = document.querySelector('.resetDiv')
     while (resetDiv.firstChild){
         resetDiv.removeChild(resetDiv.firstChild);

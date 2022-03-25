@@ -23,3 +23,29 @@ button img{
 .resetDiv{
     display: flex;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    
+}
+
+.score{
+    font-size: 40px;
+    margin-left: 60px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+.rules{
+    font-size: 24px;
+}
+.scoreNumber{
+    font-size: 64px;
+    font-weight: bold;
+}
+.title{
+    font-size: 60px;
+}
