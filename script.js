@@ -152,9 +152,9 @@ let scissorsButton = document.querySelector('.scissors');
 
 
 
-rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
-paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
-scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
+rockButton.addEventListener('click',() => playRound('rock',computerPlay()))
+paperButton.addEventListener('click',() => playRound('paper',computerPlay()))
+scissorsButton.addEventListener('click',() => playRound('scissors',computerPlay()))
 
 let playerScore = 0;
 let computerScore = 0;
