@@ -112,17 +112,17 @@ function game() {
     //     console.log('Best of 5 result - Tie!')
     // }
    // while (playerScore < 5 || computerScore < 5){
+        removePreviousGame();
+
+        // let rockButton = document.querySelector('.rock');
+        // let paperButton = document.querySelector('.paper');
+        // let scissorsButton = document.querySelector('.scissors');
 
 
-        let rockButton = document.querySelector('.rock');
-        let paperButton = document.querySelector('.paper');
-        let scissorsButton = document.querySelector('.scissors');
 
-
-
-        rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
-        paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
-        scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
+        // rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
+        // paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
+        // scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
    
 
 }
@@ -136,18 +136,62 @@ function checkWinner (playerScore, computerScore){
         victoryText.textContent = 'You win the match!'
         victory.appendChild(victoryText);
         winStatus = 1;
+        resetGame();
         
     }else if (computerScore >= 5){
         
         victoryText.textContent = 'You lose the match!'
         victory.appendChild(victoryText);
         winStatus = 1;
-        
+        resetGame();
     }
 }
 
+function resetGame(){
+    let resetButton = document.createElement('button');
+    let resetDiv = document.querySelector('.resetDiv');
+    resetButton.textContent = 'Reset Game';
+    resetButton.setAttribute('class', 'reset');
+    resetButton.addEventListener('click', () => {
+        playerScore = 0;
+        computerScore = 0;
+        winStatus = 0;
+        removePreviousGame();
+    });
+    resetDiv.appendChild(resetButton);
+
+
+}
+function removePreviousGame() {
+    let results = document.querySelector('.results')
+    while (results.firstChild){
+        results.removeChild(results.firstChild);
+    }
+    let score = document.querySelector('.score');
+    score.textContent = 'Player 0 - 0 Computer';
+    let resetDiv = document.querySelector('.resetDiv')
+    while (resetDiv.firstChild){
+        resetDiv.removeChild(resetDiv.firstChild);
+    }
+    let victory = document.querySelector('.victory')
+    while (victory.firstChild){
+        victory.removeChild(victory.firstChild);
+    }
+    
+
+}
+
+let rockButton = document.querySelector('.rock');
+let paperButton = document.querySelector('.paper');
+let scissorsButton = document.querySelector('.scissors');
+
+
+
+rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
+paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
+scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
 
 let playerScore = 0;
 let computerScore = 0;
 let winStatus = 0;
-game();
+//game();

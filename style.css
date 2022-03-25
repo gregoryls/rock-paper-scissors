@@ -3,7 +3,7 @@ button img{
     height: 133px;
     border-radius: 8px;
 }
-button{
+.game-buttons button{
     border-radius: 8px;
     padding: 0px;
     border: 0px;
@@ -14,4 +14,12 @@ button{
     display: flex;
     justify-content: center;
     gap: 100px;
+}
+
+.reset{
+    width: 100px;
+    height: 50px;
+}
+.resetDiv{
+    display: flex;
 }
