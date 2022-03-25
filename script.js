@@ -90,42 +90,7 @@ function playRound (playerSelection, computerSelection) {
     
 }
 
-//function, game(), that plays 5 rounds.  For...X5,  run computerPlay, player prompt, and playRound.  Initialize count variables for player and computer, increment the winner by 1 each round.  Send round result and total score to console each round. 
-// let playerSelection equal player input of 'rock', 'paper', or 'scissors'.  Convert all submissions to lowercase. 
-// let computerSelection equal the output of computerPlay
-function game() {
-    
-    
-    // for (let i = 0; i<5; i++){
-    //     //let playerSelection = prompt('Enter rock, paper, or scissors to play!', 'rock').toLowerCase()
-        
-    //     //let computerSelection = computerPlay();
-    //     //console.log(playRound(playerSelection, computerSelection));
-    //     rockButton.addEventListener('click',() => playRound('rock',computerSelection))
-    //     console.log(`Score: Player ${playerScore} - ${computerScore} Computer`);
-    // }
-    // if (playerScore > computerScore){
-    //     console.log('Best of 5 result - You Win!');
-    // }else if (playerScore < computerScore){
-    //     console.log('Best of 5 result - You Lose!');
-    // }else{
-    //     console.log('Best of 5 result - Tie!')
-    // }
-   // while (playerScore < 5 || computerScore < 5){
-        removePreviousGame();
 
-        // let rockButton = document.querySelector('.rock');
-        // let paperButton = document.querySelector('.paper');
-        // let scissorsButton = document.querySelector('.scissors');
-
-
-
-        // rockButton.addEventListener('click',() => console.log(playRound('rock',computerPlay())))
-        // paperButton.addEventListener('click',() => console.log(playRound('paper',computerPlay())))
-        // scissorsButton.addEventListener('click',() => console.log(playRound('scissors',computerPlay())))
-   
-
-}
 
 function checkWinner (playerScore, computerScore){
     let victoryText = document.createElement('h1');
@@ -194,4 +159,4 @@ scissorsButton.addEventListener('click',() => console.log(playRound('scissors',c
 let playerScore = 0;
 let computerScore = 0;
 let winStatus = 0;
-//game();
+
